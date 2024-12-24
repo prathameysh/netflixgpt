@@ -1,11 +1,7 @@
 import { useState, useRef } from "react";
 import Header from "./header";
 import { checkValidData } from "../utils/validate";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -21,6 +17,7 @@ const Login = () => {
   const handleButtonClick = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
+    
     if (message) return;
 
     if (!isSignInForm) {
@@ -125,4 +122,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default Login
